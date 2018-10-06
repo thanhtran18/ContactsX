@@ -1,0 +1,60 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xam.Plugin.Media" Version="4.0.0.9" />
+    <PackageReference Include="Xam.Plugin.Geolocator" Version="4.5.0.6" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.4.118" />
+    <PackageReference Include="Xamarin.Forms" Version="3.0.0.561731" />
+    <PackageReference Include="Xamarin.Forms.Maps" Version="3.0.0.561731" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="EmptyInterface.cs" />
+    <Compile Remove="Views\MyPage.xaml.cs" />
+    <Compile Remove="Services\EmptyClass.cs" />
+    <Compile Remove="Services\IFileHelper.cs" />
+    <Compile Remove="CallHistoryPage.xaml.cs" />
+    <Compile Remove="MainPage.xaml.cs" />
+    <Compile Remove="IDialer.cs" />
+    <Compile Remove="PhoneTranslator.cs" />
+    <Compile Remove="Resources\LanguageResources.Designer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Views\" />
+    <Folder Include="Models\Adapters\" />
+    <Folder Include="Services\" />
+    <Folder Include="src\" />
+    <Folder Include="src\img\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="Views\MyPage.xaml" />
+    <EmbeddedResource Remove="CallHistoryPage.xaml" />
+    <EmbeddedResource Remove="MainPage.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\LanguageResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LanguageResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\LanguageResources.en.resx">
+      <LastGenOutput>LanguageResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\LanguageResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LanguageResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\LanguageResources.fr.resx">
+      <LastGenOutput>LanguageResources.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Resources\LanguageResources.fr.Designer.cs">
+      <DependentUpon>LanguageResources.fr.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+</Project>

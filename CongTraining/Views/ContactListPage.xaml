@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:local="clr-namespace:CongTraining;assembly=CongTraining"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="CongTraining.Views.ContactListPage"
+             >
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="20, 40, 20, 20" />
+            <On Platform="Android, UWP" Value="20" />
+        </OnPlatform>
+    </ContentPage.Padding>
+    <ContentPage.Content>
+        <StackLayout>
+              <ListView x:Name="contactListView" ItemSelected="OnContactSelected" 
+                        ItemsSource="{Binding ContactAdapters}">
+                  <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.ContextActions>
+                                    <MenuItem Clicked="OnDelete" CommandParameter="{Binding .}"
+                                            Text="Delete" IsDestructive="True" />
+                                </ViewCell.ContextActions>
+                                <StackLayout Orientation="Horizontal">
+                                    <Image x:Name="sidePicture" Source="{Binding ImageSource}" WidthRequest="40"/>
+                                    <Label Text = "{Binding Name}" FontSize="20" AbsoluteLayout.LayoutBounds="0.25, 0.25, 400, 40" Margin="10" />
+                                </StackLayout>
+                            </ViewCell>   
+                        </DataTemplate>
+                               
+                  </ListView.ItemTemplate>      
+              </ListView>
+              <Button  x:Name="addContactButton" Text="Add Contact" Clicked="OnClickAddContactButton" Font="20"/>
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>
